@@ -23,6 +23,7 @@ public class CalclatorTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void 皆が普通に思いつくようなゼロ割はNG() {
+        // act
         sut.divide(12, 0);
     }
 
