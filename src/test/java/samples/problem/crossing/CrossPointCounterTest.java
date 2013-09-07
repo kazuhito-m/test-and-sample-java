@@ -5,6 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -16,7 +17,7 @@ public class CrossPointCounterTest {
 
 	@Before
 	public void setUp() {
-		sut = new SecondAlgorithm();
+		sut = new ThirdAlgorithm();
 	}
 
 	@Ignore
@@ -36,9 +37,13 @@ public class CrossPointCounterTest {
 		// arrange
 		File target = new File(
 				"./target/test-classes/samples/problem/crossing/crossing.txt");
+		Date start = new Date();
+		
 		// act
 		long actual = sut.countCrossPoint(target);
+		
 		// act & assert
+		System.out.println((new Date().getTime()) - start.getTime() + "ミリ秒");
 		assertThat(actual, is(20566716394L));
 	}
 	
