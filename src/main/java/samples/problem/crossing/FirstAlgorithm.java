@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class FirstAlgo implements CrossPointCounter {
+public class FirstAlgorithm implements CrossPointCounter {
 
 	public long countCrossPoint(File target) throws IOException {
 		// 交点カウント
@@ -14,8 +14,8 @@ public class FirstAlgo implements CrossPointCounter {
 		int from = 0;
 		int to = 0;
 
-		int to_min = Integer.MIN_VALUE;
-		int to_max = Integer.MAX_VALUE;
+		int toMin = Integer.MIN_VALUE;
+		int toMax = Integer.MAX_VALUE;
 
 		int[] pos = new int[320000];
 
@@ -29,12 +29,12 @@ public class FirstAlgo implements CrossPointCounter {
 			to = Integer.parseInt(line);
 			pos[from] = to;
 			
-			if (from % 1000 == 0) {
+			if (from % 10000 == 0) {
 				System.out.println("now line : " + from);
 			}
 			
 			// 前の線と重なる可能性が皆無なら
-			if (from < to && to > to_max) {
+			if (from < to && to > toMax) {
 				continue;
 			}
 
@@ -45,10 +45,10 @@ public class FirstAlgo implements CrossPointCounter {
 				}
 			}
 			
-			if (to < to_min) {
-				to_min = to;
+			if (to < toMin) {
+				toMin = to;
 			} else {
-				to_max = to;
+				toMax = to;
 			}
 			
 		}
