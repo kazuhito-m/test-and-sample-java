@@ -46,7 +46,6 @@ public class SecondAlgorithm implements CrossPointCounter {
 		fr.close();
 
 		// 保存終了。こっから、本当に数えていく。
-		Set<String> crossPs = new HashSet<>();
 		long from = 0;
 		long tgtFrom = 0;
 		long tgtTo = 0;
