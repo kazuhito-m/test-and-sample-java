@@ -5,10 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ThirdAlgorithm implements CrossPointCounter {
 
@@ -57,54 +54,25 @@ public class ThirdAlgorithm implements CrossPointCounter {
 			all[f++] = p;
 		}
 
-		// 計測
-		Date start = new Date();
-
-		int tgtFrom2 = -1;
-		for (PointPair pair : all) {
-			tgtFrom2++;
-			if (pair == null) {
-				System.out.println(tgtFrom2);
-				continue;
-			}
-			if (pair.from >= 300000) {
-				crossCount++;
-			}
-		}
-		System.out.println((new Date().getTime()) - start.getTime() + "ミリ秒");
-
-		start = new Date();
-		for (int from = 1; from < all.length; from++) {
-			PointPair p = all[from];
-			if (!p.isChecked)
-				continue;
-			if (from >= 1) {
-				crossCount++;
-			}
-		}
-		System.out.println((new Date().getTime()) - start.getTime() + "ミリ秒");
-
-		if (true)
-			return 0;
-
 		// 保存終了。こっから、本当に数えていく。
-		int from = 0;
-		boolean isUpper = false;
 
 		// 全件ループ開始。
-		for (i = 1; i <= all.length; i++) {
+		for (i = 1; i < all.length; i++) {
 			PointPair pair = all[i];
-			from++;
 			pair.isChecked = true;
 
 			// debug
 			if (pair.from % 1000 == 0) {
-				System.out.println("now line: " + from);
+				System.out.println("now line: " + pair.from);
 			}
 
 			// 比較処理開始
-			for (int j = 1; j <= all.length; j++) {
+			for (int j = 1; j < all.length; j++) {
 				PointPair bPair = all[j];
+
+				if (bPair.isChecked) {
+					continue;
+				}
 
 				if (pair.isUpper) {
 					if (bPair.isUpper) {
