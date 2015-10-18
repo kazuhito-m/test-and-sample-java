@@ -17,7 +17,7 @@ public class CrossPointCounterTest {
 
 	@Before
 	public void setUp() {
-		sut = new FirstAlgorithm();
+		sut = new FourthAlgorithm();
 	}
 
 	@Ignore
